@@ -1,1 +1,0 @@
-docker run --rm -p 5000:5000 -v "$PWD/task:/root/TASK" -i web_ensemble
