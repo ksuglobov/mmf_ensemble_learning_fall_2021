@@ -1,4 +1,4 @@
-# mmf_ensemble_learning
+# Веб-сервис "Ансамбли алгоритмов для решения задачи регрессии"
  MMF practicum project "Ensemble learning on a web server"
 
 Итоговый веб-сервис имеет простой, интуитивно понятный интерфейс:
