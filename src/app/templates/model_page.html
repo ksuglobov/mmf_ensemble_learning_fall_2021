@@ -1,0 +1,45 @@
+{% extends "basis.html" %}
+
+{% block title %} Модель {{ model.name }} {% endblock %}
+
+{% block content %}
+<h1>Модель <p class="model_name">{{ model.name }}</p></h1>
+
+    <h3>Текущая модель и её гиперпараметры:</h3>
+
+    <div>{{ model.description.to_html(index=False) | safe }}</div>
+    <br>
+    <div>
+    {% if model.is_fitted %}
+      <img src={{ url_for('plot_png', name=model.name) }}
+                  alt='alt: Здесь должен быть график потерь. Он потерялся'
+                  width=50%>
+      <p><i>Модель обучена! Для предсказания загрузите тестовый датасет:</i></p>
+      <form method='POST' action={{ url_for('model_page', name=model.name) }}>
+        <div class='field'>
+            {{ test_form.test_data.label }}
+            {{ test_form.test_data() }}
+        </div>
+        <input type="submit" value="Предсказать">
+        <i>(будет скачан .csv файл с предсказаниями)</i>
+      </form>
+    {% else %}
+        <i>Для обучения модели загрузите обучающий датасет:</i>
+        <form method='POST' action={{ url_for('model_page', name=model.name) }}>
+        <div class='field'>
+            {{ learn_form.train_data.label }}
+            {{ learn_form.train_data() }}
+        </div>
+        <div class='field'>
+            {{ learn_form.val_data.label }}
+            {{ learn_form.val_data() }}
+        </div>
+        <input type="submit" value="Обучить">
+      </form>
+
+    {% endif %}
+    </div>
+
+<br>
+<a href="{{ url_for('get_models') }}"><button>Назад</button></a>
+{% endblock %}

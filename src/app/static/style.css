@@ -1,0 +1,87 @@
+body {
+    background: rgb(148, 194, 255);
+}
+
+h1 {
+    padding-left: 400px;
+    background: rgb(248, 247, 191);
+}
+h3 {
+  display: inline;
+  background: rgb(248, 247, 191);
+}
+
+form {
+    padding: 10px;
+    background: rgb(144, 236, 216);
+    margin-bottom: 20px;
+}
+
+button{
+    background: rgb(255, 255, 255);
+    padding: 3px 7px;
+    color: #333;
+    border: 5px solid #666;
+}
+
+ul {
+  list-style-type: square;
+}
+
+ul a {
+    width: 10%;
+    text-decoration: none;
+    display: inline-block;
+    padding: 3px 2px;
+    letter-spacing: 1px;
+    margin: 3px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0e1c20;
+    background: rgb(255, 255, 255)
+}
+
+p.model_name {
+  display: inline;
+    background:rgb(125, 229, 236);
+}
+
+table {
+    background:rgb(255, 255, 255);
+}
+
+i {
+    background:rgb(255, 255, 255);
+}
+
+.center {
+    display: block;
+    text-align: center;
+    width: 1000px;
+    padding: 10px;
+    margin: auto;
+    background: rgb(248, 247, 191);
+}
+
+.main_button {
+    background-color: #cdd0da;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+div.field {
+  padding: 5px;
+}
+div.field label {
+  margin-right: 5px;
+  text-align: right;
+  display: block;
+  float: left;
+  width: 380px;
+  height: 15px;
+}

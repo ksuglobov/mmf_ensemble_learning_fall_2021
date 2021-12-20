@@ -1,0 +1,12 @@
+{% extends "basis.html" %}
+
+{% block title %}Главная{% endblock %}
+{% block content %}
+    <div class="center">
+        <h1 style="padding-left: 0px;">Веб-сервис "Ансамбли алгоритмов для решения задач регрессии"</h1>
+        <a href={{ url_for('get_data') }} class="main_button">Менеджер датасетов</a>
+        &nbsp;
+        &nbsp;
+        <a href={{ url_for('get_models') }} class="main_button">Менеджер моделей</a>
+    </div>
+{% endblock %}
