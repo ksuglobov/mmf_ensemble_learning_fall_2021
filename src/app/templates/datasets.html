@@ -1,0 +1,47 @@
+{% extends "basis.html" %}
+
+{% block title %}Датасеты{% endblock %}
+
+{% block content %}
+
+<h1>Датасеты</h1>
+<i>Здесь нужно загружать выборки для моделей в формате .csv.
+   Первый столбец файла - индекс. Датасеты загружаются в первом окне,
+   целевые переменные загружаеются либо как название столбца загруженного
+   датасета, либо как датасет с двумя колонками (индекс, значение)</i>    
+<form method='POST' enctype="multipart/form-data" action={{ url_for('get_data') }}>
+    {{ form.csrf_token }}
+    <div class='field'>
+        {{ form.name.label }}
+        {{ form.name(size=20) }}
+    </div>
+    <div class='field'>
+        {{ form.features_file.label }}
+        {{ form.features_file() }}
+    </div>
+    <div class='field'>
+        {{ form.target_name.label }}
+        {{ form.target_name(size=20) }}
+    </div>
+    <div class='field'>
+        {{ form.target_file.label }}
+        {{ form.target_file() }}
+    </div>
+    <input type="submit" value="Продолжить">
+</form>
+
+<h3>Список датасетов:</h3>
+  <ul>
+  {% for name, dataset in datasets.items(): %}
+    <li style="background: rgb(137, 238, 245);"><u>Датасет <b>{{ name }}</b></u>; целевая переменная:
+        <i>{{ dataset.target_name if dataset.target_name != '' else 'неизвестна'}}</i>.
+        Первые 5 строк:
+    </li>
+      {{ dataset.data.head().to_html() | safe }}
+      <br>
+  {% endfor %}
+  </ul>
+
+<br>
+<a href="{{ url_for('get_index') }}"><button>Назад</button></a>
+{% endblock %}
